@@ -12,6 +12,8 @@ export const initiateApp = (app, express) => {
   app.use(globalResponse);
   db_connection();
 
-  app.get("/", (req, res) => res.json("movies-cafe API by Mahmoud Sayed"));
-  app.listen(port, () => console.log(`movies-cafe listening on port ${port}!`));
+  app.get("/", (req, res) => res.json("games-corner API by Mahmoud Sayed"));
+  app.listen(port, () =>
+    console.log(`games-corner listening on port ${port}!`)
+  );
 };
