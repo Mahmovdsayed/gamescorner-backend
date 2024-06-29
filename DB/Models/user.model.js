@@ -44,6 +44,10 @@ const userSchema = new Schema(
       default:
         "https://res.cloudinary.com/dxvpvtcbg/image/upload/v1713493679/sqlpxs561zd9oretxkki.jpg",
     },
+ instagram: {
+      type: String,
+      default: null,
+    },
     verifed: {
       type: Boolean,
       default: false,
