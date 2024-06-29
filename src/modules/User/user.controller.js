@@ -6,7 +6,7 @@ import sendEmailService from "../../utils/email.js";
 
 /// ================= SIGNUP API =================
 export const signUpHandeler = async (req, res, next) => {
-  const { username, email, password, firstName, secondName } = req.body;
+  const { username, email, password, firstName, secondName , instagram } = req.body;
   // email check
   const isEmailExists = await User.findOne({ email });
   if (isEmailExists)
@@ -25,6 +25,7 @@ export const signUpHandeler = async (req, res, next) => {
     password: hashPass,
     firstName,
     secondName,
+    instagram
   });
   await sendEmailService({
     to: email,
