@@ -24,6 +24,12 @@ export const signUpSchema = {
       "any.required": "please confirm your password",
     }),
     age: Joi.number().min(10).max(100),
+    instagram: Joi.string()
+      .pattern(/^[a-z0-9._]{1,30}$/)
+      .optional()
+      .messages({
+        "string.pattern.base": "Instagram username can only contain lowercase letters, numbers, dots, and underscores, and must be between 1 and 30 characters long",
+      }),
     gender: Joi.string().valid("male", "female"),
   }).with("password", "cpass"),
 };
