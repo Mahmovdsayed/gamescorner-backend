@@ -27,6 +27,7 @@ export const signUpSchema = {
     instagram: Joi.string()
       .pattern(/^[a-z0-9._]{1,30}$/)
       .optional()
+      .allow(null, '')
       .messages({
         "string.pattern.base": "Instagram username can only contain lowercase letters, numbers, dots, and underscores, and must be between 1 and 30 characters long",
       }),
