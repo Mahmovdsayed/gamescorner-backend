@@ -1,6 +1,29 @@
 import postModel from "../../../DB/Models/post.model.js";
 import cloudinaryConnection from "../../utils/cloudinary.js";
 import genrateUniqueString from "../../utils/generateUniqueString.js";
+import { downloadVideo } from "tiktok-api-downloader";
+
+export const download = async (req, res, next) => {
+  const url = req.query.url;
+
+  if (!url) {
+    return res.status(400).json({ status: false, error: "URL is required" });
+  }
+
+  try {
+    let response = await downloadVideo(url);
+    return res.status(200).json(response);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      status: false,
+      error: "Failed to download video",
+    });
+  }
+};
+
+
+
 
 //======================= ADD POST API ====================
 
