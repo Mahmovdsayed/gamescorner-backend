@@ -11,10 +11,7 @@ Postrouter.post(
   auth(['user','admin']),
   expressAsyncHandler(postController.addPost)
 );
-Postrouter.get({
-"/download",
-  expressAsyncHandler(postController.download)
-})
+
 // delete post
 Postrouter.delete(
   "/delete",
